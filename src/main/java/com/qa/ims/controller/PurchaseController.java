@@ -8,20 +8,20 @@ import com.qa.ims.model.UserModel;
 
 @Controller
 public class PurchaseController {
-	
+
 	private OrderService orderService;
 	private UserModel user;
-	
-	public void addToBasket(LineItem lineItem){
+
+	public void addToBasket(LineItem lineItem) {
 		orderService.addToBasket(lineItem, user);
-		
+
 	}
-	
-	public void removeFromBasket(LineItem lineItem){
+
+	public void removeFromBasket(LineItem lineItem) {
 		orderService.removeFromBasket(lineItem, user);
 	}
-	
-	public void clearBasket(UserModel user){
+
+	public void clearBasket(UserModel user) {
 		orderService.clearBasket(user);
 	}
 

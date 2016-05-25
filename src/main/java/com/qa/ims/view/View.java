@@ -8,30 +8,30 @@ public abstract class View extends WebPanel {
 
 	private final String identifier;
 
-    private boolean initialized = false;
+	private boolean initialized = false;
 
-    public View(String identifier) {
-        this.identifier = identifier;
-    }
+	public View(String identifier) {
+		this.identifier = identifier;
+	}
 
-    public void initialize() {
-        initialized = true;
-    }
+	public void initialize() {
+		initialized = true;
+	}
 
-    public void preSwitch() {
+	public void preSwitch() {
 
-    }
+	}
 
-    public void postSwitch() {
+	public void postSwitch() {
 
-    }
+	}
 
-    public String getIdentifier() {
-        return identifier;
-    }
+	public String getIdentifier() {
+		return identifier;
+	}
 
-    public boolean hasInitialized() {
-        return initialized;
-    }
-    
+	public boolean hasInitialized() {
+		return initialized;
+	}
+
 }

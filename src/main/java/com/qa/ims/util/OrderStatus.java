@@ -1,12 +1,8 @@
 package com.qa.ims.util;
 
 public enum OrderStatus {
-	PENDING(0, "Pending"), 
-	PLACED(1, "Placed"),
-	PROCESSING(2, "Processing"), 
-	AWAITINGDISPATCH(3, "Awaiting Dispatch"), 
-	DELIVERED(4, "Delivered"), 
-	PAID(5, "Paid");
+	PENDING(0, "Pending"), PLACED(1, "Placed"), PROCESSING(2, "Processing"), AWAITINGDISPATCH(3,
+			"Awaiting Dispatch"), DELIVERED(4, "Delivered"), PAID(5, "Paid");
 
 	private final long id;
 	private final String name;

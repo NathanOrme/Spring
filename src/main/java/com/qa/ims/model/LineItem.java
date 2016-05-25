@@ -4,13 +4,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Embeddable
 @Table(name = "lineitems")
 public class LineItem {
 
 	@Id
-	@ManyToOne
-	@JoinTable(name = "orders")
-	private Order order;
+	@GeneratedValue
+	private long id;
+	// @ManyToOne
+	// @JoinTable(name = "orders")
+	// private Order order;
 
 	@ManyToOne
 	@JoinTable(name = "product")
@@ -27,16 +30,11 @@ public class LineItem {
 	@Column(name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
 
-	public LineItem(Order order, Product product, int quantity, double subtotal, int returnedQty) {
-		this.order = order;
+	public LineItem(Product product, int quantity, double subtotal, int returnedQty) {
 		this.product = product;
 		this.quantity = quantity;
 		this.subtotal = subtotal;
 		this.returnedQty = returnedQty;
-	}
-
-	public Order getOrder() {
-		return order;
 	}
 
 	public Product getProduct() {
@@ -53,10 +51,6 @@ public class LineItem {
 
 	public int getReturnedQty() {
 		return returnedQty;
-	}
-
-	public void setOrder(Order o) {
-		this.order = o;
 	}
 
 	public void setProduct(Product p) {

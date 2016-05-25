@@ -7,5 +7,5 @@ import com.qa.ims.model.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	
+
 }

@@ -14,17 +14,17 @@ public class UserService {
 
 	@Autowired
 	private UserModelRepository userModelRepository;
-	
+
 	public boolean valid(String username, String password) {
 		UserModel userModel = userModelRepository.getOne(username);
-		if(userModel == null) {
+		if (userModel == null) {
 			return false;
 		}
-		
-		if(userModel.getPassword().equals(password)) {
+
+		if (userModel.getPassword().equals(password)) {
 			return true;
 		}
-		
+
 		return false;
 	}
 

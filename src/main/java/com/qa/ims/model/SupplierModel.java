@@ -3,8 +3,6 @@ package com.qa.ims.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -18,9 +16,6 @@ public class SupplierModel {
 
 	@NotNull
 	private String name;
-
-	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
-	private Address address;
 
 	public long getId() {
 		return id;
@@ -38,17 +33,8 @@ public class SupplierModel {
 		this.name = name;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public SupplierModel(String name, Address address) {
+	public SupplierModel(String name) {
 		this.name = name;
-		this.address = address;
 	}
 
 	public SupplierModel() {

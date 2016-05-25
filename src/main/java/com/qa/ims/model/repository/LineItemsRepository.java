@@ -7,5 +7,5 @@ import com.qa.ims.model.LineItem;
 
 @Repository
 public interface LineItemsRepository extends JpaRepository<LineItem, Long> {
-	
+
 }

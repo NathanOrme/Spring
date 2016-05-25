@@ -7,5 +7,5 @@ import com.qa.ims.model.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-	
+
 }

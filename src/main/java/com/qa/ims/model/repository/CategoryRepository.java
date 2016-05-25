@@ -7,5 +7,5 @@ import com.qa.ims.model.SupplierModel;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<SupplierModel, Long> {
-	
+
 }

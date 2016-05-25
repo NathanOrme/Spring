@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import com.qa.ims.util.OrderStatus;
@@ -20,15 +22,15 @@ import com.qa.ims.util.OrderStatus;
 public class Order {
 
 	@Id
-	@Column(name = "ORDER_ID")
+	@Column(name = "ORDER_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private double total;
 	private Date date;
 	private Date dispatchDate;
 	private OrderStatus orderStatus;
-	@OneToMany
-	@JoinColumn(name = "LINEITEMS_ORDERID", nullable = false)
+	@ElementCollection
+	@OrderColumn
 	private List<LineItem> lineItem;
 	@OneToOne
 	@JoinColumn(name = "USER_ID")
@@ -113,13 +115,4 @@ public class Order {
 		this.user = user;
 	}
 
-	/*
-	 * public ArrayList<Product> getOrderList(){ return productList; }
-	 * 
-	 * public void setOrderList(ArrayList<Product> productList){
-	 * this.productList = productList; }
-	 * 
-	 * public void addProduct(Product product){ productList.add(product);
-	 * productList.sort(); }
-	 */
 }
