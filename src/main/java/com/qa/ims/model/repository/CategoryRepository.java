@@ -3,9 +3,9 @@ package com.qa.ims.model.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.qa.ims.model.SupplierModel;
+import com.qa.ims.model.Category;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<SupplierModel, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 
 }

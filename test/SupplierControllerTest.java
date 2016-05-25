@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,14 +27,17 @@ public class SupplierControllerTest {
 	@Before
 	public void setUp() {
 		supplierModel = new SupplierModel("Test");
-	}
-
-	@After
-	public void checkIfSuppliersNotEmpty(){
 		if(supplierController.getAllSuppliers() != null){
 			supplierController.deleteAllSuppliers();
 		}
 	}
+
+	/*@After
+	public void checkIfSuppliersNotEmpty(){
+		if(supplierController.getAllSuppliers() != null){
+			supplierController.deleteAllSuppliers();
+		}
+	}*/
 
 	@Test
 	public void testPersistSupplier() {
