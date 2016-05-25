@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.qa.ims.App;
 import com.qa.ims.controller.SupplierController;
+import com.qa.ims.model.Address;
 import com.qa.ims.model.SupplierModel;
 import com.qa.ims.model.repository.SupplierModelRepository;
 
@@ -24,10 +25,12 @@ public class SupplierControllerTest {
 	@Autowired
 	private SupplierModelRepository supplierRepository;
 	private SupplierModel supplierModel;
+	public Address address1;
 
 	@Before
 	public void setUp() {
-		supplierModel = new SupplierModel("Test");
+		address1 = new Address("1 Rainbow Road", "RR11 RR1");
+		supplierModel = new SupplierModel("Test", address1);
 	}
 
 	@After

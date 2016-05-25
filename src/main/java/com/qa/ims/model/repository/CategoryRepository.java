@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.qa.ims.model.SupplierModel;
 
 @Repository
-public interface SupplierModelRepository extends JpaRepository<SupplierModel, Long> {
+public interface CategoryRepository extends JpaRepository<SupplierModel, Long> {
 	
 }

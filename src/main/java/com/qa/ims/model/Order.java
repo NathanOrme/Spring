@@ -1,26 +1,48 @@
 package com.qa.ims.model;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.qa.ims.util.OrderStatus;
+
+@Entity
+@Table(name = "orders")
 public class Order {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private double total;
 	private Date date;
 	private Date dispatchDate;
-	private ArrayList<Product> productList = new ArrayList<Product>();
-	//private OrderStatus orderStatus;
-	
-	public Order(){
-		
+	private OrderStatus orderStatus;
+	@OneToMany
+	@JoinColumn(name = "LINEITEMS_ORDERID", nullable = false)
+	private List<LineItem> lineItem;
+	@OneToOne
+	@JoinColumn(name = "USER_ID")
+	private UserModel user;
+
+	public Order() {
+
 	}
-	
-	public Order(long id, double total, Date date, Date dispatchDate){
+
+	public Order(long id, double total, Date date, Date dispatchDate, OrderStatus orderStatus, UserModel user) {
 		this.id = id;
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;
+		this.setOrderStatus(orderStatus);
+		this.user = user;
 	}
 
 	public long getId() {
@@ -54,18 +76,48 @@ public class Order {
 	public void setDispatchDate(Date dispatchDate) {
 		this.dispatchDate = dispatchDate;
 	}
-	/*
-	public ArrayList<Product> getOrderList(){
-		return productList;
-	}
-	
-	public void setOrderList(ArrayList<Product> productList){
-		this.productList = productList;
+
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void addProduct(Product product){
-		productList.add(product);
-		productList.sort();
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
 	}
-	*/
+
+	/**
+	 * Gets the array of lineItems for the order
+	 * 
+	 */
+	public List<LineItem> getLineItem() {
+		return lineItem;
+	}
+
+	/**
+	 * Sets the lineItems for the order
+	 * 
+	 * @param lineItem
+	 *            the array of line items.
+	 */
+	public void setLineItem(List<LineItem> lineItem) {
+		this.lineItem = lineItem;
+	}
+
+	public UserModel getUser() {
+		return user;
+	}
+
+	public void setUser(UserModel user) {
+		this.user = user;
+	}
+
+	/*
+	 * public ArrayList<Product> getOrderList(){ return productList; }
+	 * 
+	 * public void setOrderList(ArrayList<Product> productList){
+	 * this.productList = productList; }
+	 * 
+	 * public void addProduct(Product product){ productList.add(product);
+	 * productList.sort(); }
+	 */
 }
