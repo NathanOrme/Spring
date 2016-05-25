@@ -6,6 +6,8 @@ package com.qa.ims.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -13,6 +15,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "prodsup")
 public class ProdSup {
+	
+	@Id
+	@GeneratedValue
+	private long id;
 
 	@ManyToOne
 	@JoinColumn(name = "SUPPLIER_ID")

@@ -9,11 +9,11 @@ public class LineItem {
 
 	@Id
 	@ManyToOne
-	@JoinTable(name = "ORDER_ID")
+	@JoinTable(name = "orders")
 	private Order order;
 
 	@ManyToOne
-	@JoinTable(name = "PRODUCT_ID")
+	@JoinTable(name = "product")
 	private Product product;
 
 	@Column(name = "QUANTITY", length = 10, nullable = false)
