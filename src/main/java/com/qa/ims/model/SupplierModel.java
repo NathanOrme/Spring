@@ -37,8 +37,4 @@ public class SupplierModel {
 		this.name = name;
 	}
 
-	public SupplierModel() {
-
-	}
-
 }

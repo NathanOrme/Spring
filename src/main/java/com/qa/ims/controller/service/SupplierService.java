@@ -20,6 +20,7 @@ public class SupplierService {
 	public void persistSupplier(SupplierModel supplierModel) {
 		if (supplierModel != null) {
 			System.out.println("supplier Model id - " + supplierModel.getId());
+			System.out.println("supplier name - " + supplierModel.getName());
 			supplierModelRepository.save(supplierModel);
 			System.out.println("supplier Saved");
 		}
