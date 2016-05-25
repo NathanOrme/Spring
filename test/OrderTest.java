@@ -19,7 +19,6 @@ public class OrderTest {
 	private UserModel um1;
 	private UserModel um2;
 	private Order order1;
-	private Order order2;
 	private LineItem lineItem1;
 	private LineItem lineItem2;
 	private Product product1;
@@ -32,6 +31,7 @@ public class OrderTest {
 		order1 = new Order(20.2, new Date(), null, OrderStatus.PENDING, um1);
 		lineItem1 = new LineItem(product1, 2, product1.getPrice()*2, 0);
 		List<LineItem>li = new ArrayList<LineItem>();
+		li.add(lineItem1);
 		order1.setLineItem(li);
 		lineItem2 = new LineItem(product1, 3, product1.getPrice()*3, 0);
 	}
