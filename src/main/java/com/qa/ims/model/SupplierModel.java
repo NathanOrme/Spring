@@ -8,11 +8,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "suppliers")
+@Table(name = "supplier")
 public class SupplierModel {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "supplier_id")
 	@GeneratedValue
 	private long id;
 
@@ -37,6 +37,10 @@ public class SupplierModel {
 
 	public SupplierModel(String name) {
 		this.name = name;
+	}
+	
+	public SupplierModel(){
+		
 	}
 
 }
