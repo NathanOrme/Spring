@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.qa.ims.model.LineItem;
 
 @Repository
-public interface LineItemsRepository extends JpaRepository<LineItem, Long> {
+public interface LineItemRepository extends JpaRepository<LineItem, Long> {
 
 }
