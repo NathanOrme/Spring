@@ -28,10 +28,6 @@ public class SupplierControllerTest {
 	@Before
 	public void setUp() {
 		supplierModel = new SupplierModel("Test");
-	}
-
-	@After
-	public void checkIfSuppliersNotEmpty(){
 		if(supplierController.getAllSuppliers() != null){
 			supplierController.deleteAllSuppliers();
 		}
