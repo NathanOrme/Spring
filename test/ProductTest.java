@@ -1,127 +1,145 @@
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import com.qa.ims.model.Product;
+import com.qa.ims.util.ProductType;
 
 public class ProductTest {
 
-	@Test
-	public void testGetId() {
-		fail("Not yet implemented");
+	private Product product;
+
+	@Before
+	public void setUp() {
+		product = new Product("Cheesey Chair", "hhhh-tttt-1111", "orange", 20.2, false, null, 5, ProductType.FURNITURE,
+				"Cheese Gromit, Cheese", 4, 0);
 	}
 
 	@Test
-	public void testSetId() {
-		fail("Not yet implemented");
+	public void testGetId() {
+		assertNotNull(product.getId());
 	}
 
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertSame(product.getName(), "Cheesey Chair");
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		product.setName("Mister PoPo");
+		assertSame(product.getName(), "Mister PoPo");
 	}
 
 	@Test
 	public void testGetSerial() {
-		fail("Not yet implemented");
+		assertSame(product.getSerial(), "hhhh-tttt-1111");
 	}
 
 	@Test
 	public void testSetSerial() {
-		fail("Not yet implemented");
+		product.setSerial("ht1x");
+		assertSame(product.getSerial(), "ht1x");
 	}
 
 	@Test
 	public void testGetColour() {
-		fail("Not yet implemented");
+		assertSame(product.getColour(), "orange");
 	}
 
 	@Test
 	public void testSetColour() {
-		fail("Not yet implemented");
+		product.setColour("gold");
+		assertSame(product.getColour(), "gold");
 	}
 
 	@Test
 	public void testGetPrice() {
-		fail("Not yet implemented");
+		assertEquals(product.getPrice(), 20.2, 0.1);
 	}
 
 	@Test
 	public void testSetPrice() {
-		fail("Not yet implemented");
+		product.setPrice(20.34);
+		assertEquals(product.getPrice(), 20.34, 0.1);
 	}
 
 	@Test
 	public void testIsDiscountinued() {
-		fail("Not yet implemented");
+		assertSame(product.isDiscountinued(), false);
 	}
 
 	@Test
 	public void testSetDiscountinued() {
-		fail("Not yet implemented");
+		product.setDiscountinued(true);
+		assertSame(product.isDiscountinued(), true);
 	}
 
 	@Test
 	public void testGetPictureLoc() {
-		fail("Not yet implemented");
+		assertSame(product.getPictureLoc(), null);
 	}
 
 	@Test
 	public void testSetPictureLoc() {
-		fail("Not yet implemented");
+		product.setPictureLoc("xxxx");
+		assertSame(product.getPictureLoc(), "xxxx");
 	}
 
 	@Test
 	public void testGetQuantityAvailable() {
-		fail("Not yet implemented");
+		assertSame(product.getQuantityAvailable(), 5);
 	}
 
 	@Test
 	public void testSetQuantityAvailable() {
-		fail("Not yet implemented");
+		product.setQuantityAvailable(10);
+		assertSame(product.getQuantityAvailable(), 10);
 	}
 
 	@Test
 	public void testGetProductType() {
-		fail("Not yet implemented");
+		assertSame(product.getProductType(), ProductType.FURNITURE);
 	}
 
 	@Test
 	public void testSetProductType() {
-		fail("Not yet implemented");
+		product.setProductType(ProductType.TOOL);
+		assertSame(product.getProductType(), ProductType.TOOL);
 	}
 
 	@Test
 	public void testGetDescription() {
-		fail("Not yet implemented");
+		assertSame(product.getDescription(), "Cheese Gromit, Cheese");
 	}
 
 	@Test
 	public void testSetDescription() {
-		fail("Not yet implemented");
+		product.setDescription("Cheese");
+		assertSame(product.getDescription(), "Cheese");
 	}
 
 	@Test
 	public void testGetReorderThreshold() {
-		fail("Not yet implemented");
+		assertSame(product.getReorderThreshold(), 4);
 	}
 
 	@Test
 	public void testSetReorderThreshold() {
-		fail("Not yet implemented");
+		product.setReorderThreshold(8);
+		assertSame(product.getReorderThreshold(), 8);
 	}
 
 	@Test
 	public void testGetReorderedAmount() {
-		fail("Not yet implemented");
+		assertSame(product.getReorderedAmount(), 0);
 	}
 
 	@Test
 	public void testSetReorderedAmount() {
-		fail("Not yet implemented");
+		product.setReorderedAmount(10);
+		assertSame(product.getReorderedAmount(), 10);
 	}
 
 }
