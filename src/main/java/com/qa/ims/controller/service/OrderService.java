@@ -1,5 +1,7 @@
 package com.qa.ims.controller.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,42 @@ public class OrderService {
 	private LineItemRepository lineitemRepository;
 	
 	public void addToBasket(LineItem lineItem, UserModel user) {
-		//TODO finish code
+		Order order = getUsersPendingOrder(user);
+		if(order!=null){
+			if(!order.getLineItem().isEmpty()){
+				int index = 0;
+				for(LineItem l : order.getLineItem()){
+					if(l.getProduct().equals(lineItem.getProduct())){
+						updateQuanity(order, lineItem, index);
+					}
+				}
+			} else {
+				newLineItem(order, lineItem);
+			}
+			
+		} else {
+			order = new Order(0.0, new Date(), null, OrderStatus.PENDING, user);
+			newLineItem(order, lineItem);
+		}
+	}
+	
+	private void updateQuanity(Order order, LineItem lineItem, int index) {
+		lineItem.setQuantity(lineItem.getQuantity()+1);
+		lineitemRepository.save(lineItem);
+		List<LineItem> lineItems = new ArrayList<LineItem>();
+		lineItems.set(index, lineItem);
+		order.setLineItem(lineItems);
+		orderRepository.save(order);
+	}
+
+	public void newLineItem(Order order, LineItem lineItem){
+		List<LineItem> lineItems = new ArrayList<LineItem>();
+		if(!order.getLineItem().isEmpty()){
+			lineItems = order.getLineItem();
+		}
+		lineItems.add(lineItem);
+		order.setLineItem(lineItems);
+		orderRepository.save(order);
 	}
 
 	public void removeFromBasket(LineItem lineItem, UserModel user) {
