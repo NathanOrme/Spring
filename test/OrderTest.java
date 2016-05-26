@@ -59,6 +59,7 @@ public class OrderTest {
 		assertSame(order1.getDate().getDate(), new Date().getDate());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testSetDate() {
 		order1.setDate(new Date());
@@ -70,6 +71,7 @@ public class OrderTest {
 		assertNull(order1.getDispatchDate());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testSetDispatchDate() {
 		order1.setDispatchDate(new Date());
