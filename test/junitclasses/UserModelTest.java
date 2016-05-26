@@ -1,38 +1,45 @@
 package junitclasses;
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class UserModelTest {
+import com.qa.ims.model.UserModel;
 
-	@Test
-	public void testGetId() {
-		fail("Not yet implemented");
+public class UserModelTest {
+	
+	private UserModel user;
+	
+	@Before
+	public void setUp(){
+		user = new UserModel("Sam", "Peas");
 	}
 
 	@Test
-	public void testSetId() {
-		fail("Not yet implemented");
+	public void testGetId() {
+		assertNotNull(user.getId());
 	}
 
 	@Test
 	public void testGetUsername() {
-		fail("Not yet implemented");
+		assertSame(user.getUsername(), "Sam");
 	}
 
 	@Test
 	public void testSetUsername() {
-		fail("Not yet implemented");
+		user.setUsername("Cheese");
+		assertSame(user.getUsername(), "Cheese");
 	}
 
 	@Test
 	public void testGetPassword() {
-		fail("Not yet implemented");
+		assertSame(user.getPassword(), "Peas");
 	}
 
 	@Test
 	public void testSetPassword() {
-		fail("Not yet implemented");
+		user.setPassword("Chicken");
+		assertSame(user.getPassword(), "Chicken");
 	}
 
 }
