@@ -39,7 +39,7 @@ public class UserControllerTest {
 
 	@Test
 	public void testAuthenticate() {
-		userController.authenticate(user.getUsername(), user.getPassword());
+		assertSame(userController.authenticate(user.getUsername(), user.getPassword()), true);
 	}
 
 }
