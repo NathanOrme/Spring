@@ -1,5 +1,6 @@
 package com.qa.ims.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.qa.ims.controller.service.OrderService;
@@ -9,6 +10,7 @@ import com.qa.ims.model.UserModel;
 @Controller
 public class PurchaseController {
 
+	@Autowired
 	private OrderService orderService;
 	private UserModel user;
 

@@ -22,7 +22,7 @@ public class Order {
 
 	@Id
 	@Column(name = "ORDER_ID", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private long id;
 	private double total;
 	private Date date;

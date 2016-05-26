@@ -2,6 +2,9 @@ package com.qa.ims.controller.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.qa.ims.model.LineItem;
 import com.qa.ims.model.Order;
 import com.qa.ims.model.UserModel;
@@ -9,11 +12,14 @@ import com.qa.ims.model.repository.LineItemRepository;
 import com.qa.ims.model.repository.OrderRepository;
 import com.qa.ims.util.OrderStatus;
 
-
+@Service
 public class OrderService {
 
+	@Autowired
 	private OrderRepository orderRepository;
+	@Autowired
 	private LineItemRepository lineitemRepository;
+	
 	public void addToBasket(LineItem lineItem, UserModel user) {
 		//TODO finish code
 	}
