@@ -10,13 +10,13 @@ import javax.annotation.PostConstruct;
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import org.springframework.stereotype.Component;
 
 import com.alee.laf.label.WebLabel;
-import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.rootpane.WebFrame;
 import com.qa.ims.view.impl.LoginView;
@@ -56,10 +56,10 @@ public class TemplateView extends WebFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent we) {
-				int choice = WebOptionPane.showConfirmDialog(TemplateView.this, "Are you sure you want to exit?",
-						"Confirm", WebOptionPane.YES_NO_OPTION, WebOptionPane.QUESTION_MESSAGE);
+				int choice = JOptionPane.showConfirmDialog(TemplateView.this, "Are you sure you want to exit?",
+						"Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-				if (choice == WebOptionPane.YES_NO_OPTION) {
+				if (choice == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}
 			}
