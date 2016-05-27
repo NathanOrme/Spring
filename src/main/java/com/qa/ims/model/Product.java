@@ -1,5 +1,9 @@
 package com.qa.ims.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+
 /**
  * Author - Tom
  */
@@ -18,6 +22,7 @@ import com.qa.ims.util.ProductType;
 public class Product {
 
 	@Id
+	@Column(name = "product_id")
 	@GeneratedValue
 	private long id;
 
@@ -51,6 +56,9 @@ public class Product {
 
 	@NotNull
 	private int reorderedAmount;
+
+	@NotNull
+	private Date lastUpdated;
 
 	public long getId() {
 		return id;
@@ -148,9 +156,9 @@ public class Product {
 		this.reorderedAmount = reorderedAmount;
 	}
 
-	public Product(String name, String serial, String colour, Double price, boolean discountinued,
-			String pictureLoc, int quantityAvailable, ProductType productType, String description, int reorderThreshold,
-			int reorderedAmount) {
+	public Product(String name, String serial, String colour, Double price, boolean discountinued, String pictureLoc,
+			int quantityAvailable, ProductType productType, String description, int reorderThreshold,
+			int reorderedAmount, Date lastUpdated) {
 		super();
 		this.name = name;
 		this.serial = serial;
@@ -163,5 +171,6 @@ public class Product {
 		this.description = description;
 		this.reorderThreshold = reorderThreshold;
 		this.reorderedAmount = reorderedAmount;
+		this.lastUpdated = lastUpdated;
 	}
 }

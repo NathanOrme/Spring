@@ -17,8 +17,10 @@ public class LineItem {
 	// @JoinTable(name = "orders")
 	// private Order order;
 
-	@ManyToOne
-	@JoinTable(name = "product")
+	// @ManyToOne
+	// @JoinTable(name = "product")
+	@ManyToOne(targetEntity = Product.class)
+	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
 
 	@Column(name = "QUANTITY", length = 10, nullable = false)
@@ -31,8 +33,9 @@ public class LineItem {
 
 	@Column(name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
-	
+
 	@Column(name = "PRODUCT_STATUS")
+	@NotNull
 	private LineItemStatus lineItemStatus;
 
 	public LineItem(Product product, int quantity, double subtotal, int returnedQty, LineItemStatus lineItemStatus) {

@@ -1,9 +1,9 @@
 package com.qa.ims.util;
 
 public enum LineItemStatus {
-	
+
 	NORMAL(0, "Normal"), RETURNED(1, "Returned"), DAMAGED(1, "Damaged");
-	
+
 	private final long id;
 	private final String name;
 

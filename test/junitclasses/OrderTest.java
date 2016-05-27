@@ -27,7 +27,7 @@ public class OrderTest {
 	
 	@Before
 	public void setUp(){
-		product1 = new Product("Cheese", "tttt", "orange", 20.2, false, null, 9, ProductType.FURNITURE, "Thing",7, 0);
+		product1 = new Product("Cheese", "tttt", "orange", 20.2, false, null, 9, ProductType.FURNITURE, "Thing",7, 0, new Date());
 		um1 = new UserModel("Chicken", "Pigeon");
 		um2 = new UserModel("Will", "PipeDown");
 		order1 = new Order(20.2, new Date(), null, OrderStatus.PENDING, um1);

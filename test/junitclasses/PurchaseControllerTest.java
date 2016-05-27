@@ -52,7 +52,7 @@ public class PurchaseControllerTest {
 	
 	@Before
 	public void setUp(){
-		product = new Product("Cheese", "tttt", "orange", 20.2, false, "ttt", 9, ProductType.FURNITURE, "Thing",7, 0);
+		product = new Product("Cheese", "tttt", "orange", 20.2, false, "ttt", 9, ProductType.FURNITURE, "Thing",7, 0, new Date());
 		System.out.println("id - " + product.getId());
 		System.out.println("name - " + product.getName());
 		System.out.println("serial - " + product.getSerial());

@@ -20,7 +20,7 @@ public class UserModel {
 	@NotNull
 	@Column(name = "user_password")
 	private String password;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -46,12 +46,9 @@ public class UserModel {
 		this.username = username;
 		this.password = password;
 	}
-	
-	public UserModel(){
-		
-	}
 
-	
-	
+	public UserModel() {
+
+	}
 
 }

@@ -39,7 +39,7 @@ public class Order {
 	}
 
 	public Order(double total, Date date, Date dispatchDate, OrderStatus orderStatus, UserModel user) {
-		//this.id = id;
+		// this.id = id;
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;

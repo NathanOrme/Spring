@@ -1,6 +1,8 @@
 package junitclasses;
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +16,7 @@ public class ProductTest {
 	@Before
 	public void setUp() {
 		product = new Product("Cheesey Chair", "hhhh-tttt-1111", "orange", 20.2, false, null, 5, ProductType.FURNITURE,
-				"Cheese Gromit, Cheese", 4, 0);
+				"Cheese Gromit, Cheese", 4, 0, new Date());
 	}
 
 	@Test

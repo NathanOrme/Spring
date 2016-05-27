@@ -38,9 +38,9 @@ public class SupplierModel {
 	public SupplierModel(String name) {
 		this.name = name;
 	}
-	
-	public SupplierModel(){
-		
+
+	public SupplierModel() {
+
 	}
 
 }
