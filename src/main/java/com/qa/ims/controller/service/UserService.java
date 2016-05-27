@@ -2,6 +2,7 @@ package com.qa.ims.controller.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.ims.model.UserModel;
 import com.qa.ims.model.repository.UserModelRepository;
@@ -15,6 +16,7 @@ public class UserService {
 	@Autowired
 	private UserModelRepository userModelRepository;
 
+	@Transactional
 	public boolean valid(String username, String password) {
 		UserModel userModel = userModelRepository.getOne(username);
 		if (userModel == null) {
