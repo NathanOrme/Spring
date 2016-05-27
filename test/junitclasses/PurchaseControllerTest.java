@@ -24,6 +24,7 @@ import com.qa.ims.model.repository.LineItemRepository;
 import com.qa.ims.model.repository.OrderRepository;
 import com.qa.ims.model.repository.ProductRepository;
 import com.qa.ims.model.repository.UserModelRepository;
+import com.qa.ims.util.LineItemStatus;
 import com.qa.ims.util.OrderStatus;
 import com.qa.ims.util.ProductType;
 
@@ -69,7 +70,7 @@ public class PurchaseControllerTest {
 		usermodelRepository.save(user);
 		order = new Order(20.2, new Date(), null, OrderStatus.PENDING, user);
 		orderRepository.save(order);
-		lineItem = new LineItem(product, 2, product.getPrice()*2, 0);
+		lineItem = new LineItem(product, 2, product.getPrice()*2, 0, LineItemStatus.NORMAL);
 		List<LineItem>li = new ArrayList<LineItem>();
 		li.add(lineItem);
 		order.setLineItem(li);

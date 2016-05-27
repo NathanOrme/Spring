@@ -12,6 +12,7 @@ import com.qa.ims.model.LineItem;
 import com.qa.ims.model.Order;
 import com.qa.ims.model.Product;
 import com.qa.ims.model.UserModel;
+import com.qa.ims.util.LineItemStatus;
 import com.qa.ims.util.OrderStatus;
 import com.qa.ims.util.ProductType;
 
@@ -30,11 +31,11 @@ public class OrderTest {
 		um1 = new UserModel("Chicken", "Pigeon");
 		um2 = new UserModel("Will", "PipeDown");
 		order1 = new Order(20.2, new Date(), null, OrderStatus.PENDING, um1);
-		lineItem1 = new LineItem(product1, 2, product1.getPrice()*2, 0);
+		lineItem1 = new LineItem(product1, 2, product1.getPrice()*2, 0, LineItemStatus.NORMAL);
 		List<LineItem>li = new ArrayList<LineItem>();
 		li.add(lineItem1);
 		order1.setLineItem(li);
-		lineItem2 = new LineItem(product1, 3, product1.getPrice()*3, 0);
+		lineItem2 = new LineItem(product1, 3, product1.getPrice()*3, 0, LineItemStatus.NORMAL);
 	}
 
 	@Test

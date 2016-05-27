@@ -3,6 +3,8 @@ package com.qa.ims.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.qa.ims.util.LineItemStatus;
+
 @Entity
 @Embeddable
 @Table(name = "lineitems")
@@ -29,12 +31,16 @@ public class LineItem {
 
 	@Column(name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
+	
+	@Column(name = "PRODUCT_STATUS")
+	private LineItemStatus lineItemStatus;
 
-	public LineItem(Product product, int quantity, double subtotal, int returnedQty) {
+	public LineItem(Product product, int quantity, double subtotal, int returnedQty, LineItemStatus lineItemStatus) {
 		this.product = product;
 		this.quantity = quantity;
 		this.subtotal = subtotal;
 		this.returnedQty = returnedQty;
+		this.lineItemStatus = lineItemStatus;
 	}
 
 	public Product getProduct() {
@@ -67,5 +73,13 @@ public class LineItem {
 
 	public void setReturnedQty(int rQty) {
 		this.returnedQty = rQty;
+	}
+
+	public LineItemStatus getLineitemStatus() {
+		return lineItemStatus;
+	}
+
+	public void setLineitemStatus(LineItemStatus lineitemStatus) {
+		this.lineItemStatus = lineitemStatus;
 	}
 }

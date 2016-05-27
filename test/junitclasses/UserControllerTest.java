@@ -17,24 +17,26 @@ import com.qa.ims.model.repository.UserModelRepository;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = App.class)
 public class UserControllerTest {
-	
+
 	@Autowired
 	private UserController userController;
 	@Autowired
 	private UserModelRepository usermodelRepository;
-	
+
 	private UserModel user;
-	
+
 	@Before
 	public void setUp(){
 		user = new UserModel("Sam", "Chicken");
 		usermodelRepository.save(user);
-		
+
 	}
-	
+
 	@After
 	public void cleanUp(){
-		usermodelRepository.deleteAll();
+		if(!usermodelRepository.findAll().isEmpty()){
+			usermodelRepository.deleteAll();
+		}
 	}
 
 	@Test
