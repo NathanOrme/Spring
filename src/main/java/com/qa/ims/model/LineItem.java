@@ -1,15 +1,33 @@
 package com.qa.ims.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.qa.ims.util.LineItemStatus;
 
 @Entity
-@Embeddable
+@IdClass(LineItemId.class)
 @Table(name = "lineitems")
-public class LineItem {
+public class LineItem implements Serializable {
 
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7897628801580208066L;
+
+	@Id 
+    @ManyToOne 
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
+
+    @Id 
+    @ManyToOne 
+    @JoinColumn(name = "product_id")
+    private Product product;
+	
 	@Id
 	@GeneratedValue
 	private long id;
@@ -19,9 +37,9 @@ public class LineItem {
 
 	// @ManyToOne
 	// @JoinTable(name = "product")
-	@ManyToOne(targetEntity = Product.class)
-	@JoinColumn(name = "product_id", nullable = false)
-	private Product product;
+	//@ManyToOne(targetEntity = Product.class)
+	//@JoinColumn(name = "product_id", nullable = false)
+	//private Product product;
 
 	@Column(name = "QUANTITY", length = 10, nullable = false)
 	@NotNull

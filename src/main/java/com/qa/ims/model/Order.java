@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
@@ -27,8 +28,7 @@ public class Order {
 	private Date date;
 	private Date dispatchDate;
 	private OrderStatus orderStatus;
-	@ElementCollection
-	@OrderColumn
+	@OneToMany(mappedBy="order")
 	private List<LineItem> lineItem;
 	@OneToOne
 	@JoinColumn(name = "USER_ID")

@@ -1,6 +1,7 @@
 package com.qa.ims.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 
@@ -12,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -56,6 +58,9 @@ public class Product {
 
 	@NotNull
 	private int reorderedAmount;
+	
+	 @OneToMany(mappedBy="product")
+	    private List<LineItem> lineItems;
 
 	@NotNull
 	private Date lastUpdated;
