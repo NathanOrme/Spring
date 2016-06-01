@@ -49,20 +49,20 @@ public class SupplierControllerTest {
 	@Test
 	public void testGetAllSuppliers() {
 		supplierController.persistSupplier(supplierModel);
-		assertNotNull(supplierController.getAllSuppliers());
+		assertNotEquals(supplierController.getAllSuppliers().isEmpty(), true);
 	}
 
 	@Test
 	public void testDeleteSupplier(){
 		supplierController.persistSupplier(supplierModel);
-		assertNotNull(supplierController.getAllSuppliers());
+		assertNotEquals(supplierController.getAllSuppliers().isEmpty(), true);
 		supplierController.deleteSupplier(supplierModel);
 		assertSame(supplierController.findSupplierByName("Test").isEmpty(), true);
 	}
 	@Test
 	public void testDeleteAllSuppliers(){
 		supplierController.persistSupplier(supplierModel);
-		assertNotNull(supplierController.getAllSuppliers());
+		assertNotEquals(supplierController.getAllSuppliers().isEmpty(), true);
 		supplierController.deleteAllSuppliers();
 		assertSame(supplierController.getAllSuppliers().isEmpty(), true);
 	}
