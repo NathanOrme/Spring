@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.ims.model.LineItem;
 import com.qa.ims.model.Order;
+import com.qa.ims.model.Product;
 import com.qa.ims.model.UserModel;
 import com.qa.ims.model.repository.LineItemRepository;
 import com.qa.ims.model.repository.OrderRepository;
@@ -22,6 +23,7 @@ public class OrderService {
 	private OrderRepository orderRepository;
 	@Autowired
 	private LineItemRepository lineitemRepository;
+	@Autowired
 
 	@Transactional
 	public void addToBasket(LineItem lineItem, UserModel user) {
@@ -113,6 +115,29 @@ public class OrderService {
 			}
 		}
 		return null;
+	}
+	
+	public String confirmPayment(UserModel user) {
+		Order order = getUsersPendingOrder(user);
+		order.setOrderStatus(OrderStatus.PAID);
+		order.setDate(new Date());
+		orderRepository.save(order);
+		checkReorderThreshold(order);
+		return "confirmation";
+	}
+
+	private void checkReorderThreshold(Order order) {
+		for(LineItem l : order.getLineItem()){
+			if(l.getProduct().getQuantityAvailable() <= l.getProduct().getReorderThreshold()){
+				//restockProduct(l.getProduct());
+			}
+		}
+		
+	}
+
+	private void restockProduct(Product product) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
