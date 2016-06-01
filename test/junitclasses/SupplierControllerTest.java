@@ -43,7 +43,7 @@ public class SupplierControllerTest {
 	@Test
 	public void testFindSupplierByName() {
 		supplierController.persistSupplier(supplierModel);
-		assertNotNull(supplierController.findSupplierByName("Test"));
+		assertEquals(supplierController.findSupplierByName("Test").size(), 1);
 	}
 
 	@Test
