@@ -37,7 +37,7 @@ public class SupplierControllerTest {
 	public void testPersistSupplier() {
 		supplierController.persistSupplier(supplierModel);
 		List<SupplierModel> sm = supplierRepository.findAll();
-		assertNotEquals(sm, null);
+		assertNotEquals(sm.size(), 0);
 	}
 
 	@Test
