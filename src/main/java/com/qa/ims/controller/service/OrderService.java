@@ -79,8 +79,7 @@ public class OrderService {
 
 	@Transactional
 	public void clearBasket(UserModel user) {
-		List<Order> orders = orderRepository.findAll();
-		Order order = getPendingOrder(orders);
+		Order order = getUsersPendingOrder(user);
 		if (order != null) {
 			if (order.getLineItem() != null) {
 				while (!order.getLineItem().isEmpty()) {
